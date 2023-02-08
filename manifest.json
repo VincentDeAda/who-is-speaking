@@ -1,0 +1,26 @@
+{
+  "name": "Who's Speaking?",
+  "manifest_version": 3,
+  "description": "Ever had to switch between 5+ tabs to find which window creating that noise?",
+  "version": "1.0",
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "previous_source": {
+      "description": "Switch to the previous audible window.",
+      "suggested_key": {
+        "default": "Ctrl+Shift+1"
+      }
+    },
+    "next_source": {
+      "description": "Switch to the next audible window.",
+      "suggested_key": {
+        "default": "Ctrl+Shift+2"
+      }
+    }
+  }
+}
