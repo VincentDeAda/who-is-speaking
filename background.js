@@ -10,25 +10,25 @@ async function loadAudibleTabs() {
   audibleTabs = await chrome.tabs.query({ audible: true })
   index = 0;
 }
-chrome.commands.onCommand.addListener(async (s, t) => {
+chrome.commands.onCommand.addListener(async (commandName, _) => {
   if (audibleTabs.length == 0)
     return;
-  switch (s) {
+  switch (commandName) {
     case 'previous_source':
       index--;
       if (index < 0)
-        index = audibleTabs.length;
+        index = audibleTabs.length - 1;
       break;
     case 'next_source':
       index++;
-      if (index > audibleTabs.length)
+      if (index > audibleTabs.length - 1)
         index = 0;
       break;
 
     default:
       break;
   }
-  await chrome.tabs.update(audibleTabs[index % audibleTabs.length].id, { active: true })
+  await chrome.tabs.update(audibleTabs[index].id, { active: true })
 
 });
 (async () => {
