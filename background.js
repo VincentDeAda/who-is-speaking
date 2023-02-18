@@ -9,6 +9,7 @@ async function loadAudibleTabs() {
 
   audibleTabs = await chrome.tabs.query({ audible: true })
   index = 0;
+  chrome.action.setBadgeText({ text: audibleTabs.length.toString() });
 }
 chrome.commands.onCommand.addListener(async (commandName, _) => {
   if (audibleTabs.length == 0)

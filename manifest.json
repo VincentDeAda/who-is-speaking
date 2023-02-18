@@ -3,6 +3,9 @@
   "manifest_version": 3,
   "description": "Ever had to switch between 5+ tabs to find which window creating that noise?",
   "version": "1.0",
+  "action": {
+    "default_title": "Who's Speaking?"
+  },
   "permissions": [
     "tabs"
   ],
